@@ -1,10 +1,20 @@
 package org.kodluyoruz;
 
-import java.util.LinkedList;
+
 
 public class Chef implements Runnable{
-    public int workChefs=2;
+    Resturant resturant ;
+   
+    
+    public Chef(Resturant resturant) {
+        this.resturant = resturant;
+    }
 
+
+    public static String getChefsOrder() {
+        
+        return null;
+    }
 
 
     @Override
