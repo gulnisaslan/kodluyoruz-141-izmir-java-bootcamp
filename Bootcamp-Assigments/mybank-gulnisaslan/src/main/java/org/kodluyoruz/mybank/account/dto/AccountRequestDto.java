@@ -13,8 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class AccountRequestDto {
 
-    private AccountType accountType;
-    private CurrencyTypes currencyType; 
+
     private Long customerId;
     
 }

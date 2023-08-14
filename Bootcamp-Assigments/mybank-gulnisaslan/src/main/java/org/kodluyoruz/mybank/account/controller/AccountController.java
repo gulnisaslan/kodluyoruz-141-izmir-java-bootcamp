@@ -20,10 +20,38 @@ import lombok.RequiredArgsConstructor;
 public class AccountController {
     private final AccountService accountService;
 
-    @PostMapping(value = "createAccount")
-    public AccountResponseDto createAccount(@RequestBody AccountRequestDto accountRequestDto) {
-        return this.accountService.createAccount(accountRequestDto);
+    @PostMapping(value = "createSavingAndTRYAccount")
+    public AccountResponseDto createSavingAndTRYAccount(@RequestBody AccountRequestDto accountRequestDto) {
+        return this.accountService.createSavingAndTRYAccount(accountRequestDto);
     }
 
-    
+    @PostMapping(value = "createDepositAndTRYAccount")
+    public AccountResponseDto createDepositAndTRYAccount(@RequestBody AccountRequestDto accountRequestDto) {
+        return this.accountService.createDepositAndTRYAccount(accountRequestDto);
+    }
+
+    @PostMapping(value = "createSavingAndUSDAccount")
+    public AccountResponseDto createSavingAndUSDAccount(@RequestBody AccountRequestDto accountRequestDto) {
+        return this.accountService.createSavingAndUSDAccount(accountRequestDto);
+    }
+
+    @PostMapping(value = "createDepositAndUSDAccount")
+    public AccountResponseDto createDepositAndUSDAccount(@RequestBody AccountRequestDto accountRequestDto) {
+        return this.accountService.createDepositAndUSDAccount(accountRequestDto);
+    }
+
+    @PostMapping(value = "createDepositAndEURAccount")
+    public AccountResponseDto createDepositAndEURAccount(@RequestBody AccountRequestDto accountRequestDto) {
+        return this.accountService.createDepositAndEURAccount(accountRequestDto);
+    }
+    @PostMapping(value = "createSavingAndEURAccount")
+    public AccountResponseDto createSavingAndEURAccount(@RequestBody AccountRequestDto accountRequestDto) {
+        return this.accountService.createDepositAndEURAccount(accountRequestDto);
+    }
+
+
+
+
+
+
 }
