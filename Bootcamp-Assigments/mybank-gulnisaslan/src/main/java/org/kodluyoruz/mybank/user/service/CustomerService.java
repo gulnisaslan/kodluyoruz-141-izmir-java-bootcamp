@@ -4,13 +4,15 @@ import org.kodluyoruz.mybank.user.dto.CustomerRequestDto;
 import org.kodluyoruz.mybank.user.dto.CustomerResponseDto;
 import org.kodluyoruz.mybank.user.dto.CustomerUpdateDto;
 import org.kodluyoruz.mybank.user.model.Customer;
+import org.springframework.http.ResponseEntity;
 
 
 public interface CustomerService {
-    CustomerResponseDto createCustomer(CustomerRequestDto customerRequestDto);
+   CustomerResponseDto createCustomer(CustomerRequestDto customerRequestDto);
     CustomerUpdateDto updateCustomer(CustomerUpdateDto customerUpdateDto);
     boolean deleteCustomer(Long id);
     boolean deleteCustomerIdentityNumber(Long identityNumber);
+    
 
     Customer getById(Long id);
 

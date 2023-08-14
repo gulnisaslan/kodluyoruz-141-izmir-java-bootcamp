@@ -17,6 +17,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.kodluyoruz.mybank.account.model.Account;
+import org.kodluyoruz.mybank.card.model.Card;
 import org.kodluyoruz.mybank.core.model.AbstractEntity;
 import org.kodluyoruz.mybank.user.utils.NumberGenerator;
 
@@ -75,6 +76,10 @@ public class Customer extends AbstractEntity{
 	@JsonIgnore
 	@OneToMany(mappedBy = "customer",cascade = CascadeType.REMOVE)
 	private List<Account> account;
+
+	@JsonIgnore
+	@OneToMany
+	private List<Card> cards;
     
 
    
