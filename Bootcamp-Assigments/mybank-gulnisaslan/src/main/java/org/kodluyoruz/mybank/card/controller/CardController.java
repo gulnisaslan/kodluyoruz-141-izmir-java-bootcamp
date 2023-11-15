@@ -3,6 +3,7 @@ package org.kodluyoruz.mybank.card.controller;
 import org.kodluyoruz.mybank.card.dto.CardRequestDto;
 import org.kodluyoruz.mybank.card.dto.CardResponseDto;
 import org.kodluyoruz.mybank.card.service.CardService;
+import org.kodluyoruz.mybank.card.service.impl.CardServiceImpl;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

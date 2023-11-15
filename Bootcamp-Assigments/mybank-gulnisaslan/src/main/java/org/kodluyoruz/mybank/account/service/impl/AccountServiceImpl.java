@@ -37,7 +37,7 @@ public class AccountServiceImpl implements AccountService {
         //Mapping requestDto to entity
         Account createAccountRequest = Account.builder()
                 .customer(byId)
-                .ibanNo(NumberGenerator.generatedIbanNo())
+                .ibanNo(NumberGenerator.generatedIbanNoTRY())
                 .money(new BigDecimal(0))
                 .accountType(AccountType.SAVING)
                 .currencyTypes(CurrencyTypes.TRY)
@@ -55,7 +55,7 @@ public class AccountServiceImpl implements AccountService {
         //Mapping requestDto to entity
         Account createAccountRequest = Account.builder()
                 .customer(byId)
-                .ibanNo(NumberGenerator.generatedIbanNo())
+                .ibanNo(NumberGenerator.generatedIbanNoTRY())
                 .money(new BigDecimal(0))
                 .accountType(AccountType.DEPOSIT)
                 .currencyTypes(CurrencyTypes.TRY)
@@ -72,7 +72,7 @@ public class AccountServiceImpl implements AccountService {
         //Mapping requestDto to entity
         Account createAccountRequest = Account.builder()
                 .customer(byId)
-                .ibanNo(NumberGenerator.generatedIbanNo())
+                .ibanNo(NumberGenerator.generatedIbanNoUSD())
                 .money(new BigDecimal(0))
                 .accountType(AccountType.SAVING)
                 .currencyTypes(CurrencyTypes.USD)
@@ -89,7 +89,7 @@ public class AccountServiceImpl implements AccountService {
         //Mapping requestDto to entity
         Account createAccountRequest = Account.builder()
                 .customer(byId)
-                .ibanNo(NumberGenerator.generatedIbanNo())
+                .ibanNo(NumberGenerator.generatedIbanNoUSD())
                 .money(new BigDecimal(0))
                 .accountType(AccountType.DEPOSIT)
                 .currencyTypes(CurrencyTypes.USD)
@@ -106,7 +106,7 @@ public class AccountServiceImpl implements AccountService {
         //Mapping requestDto to entity
         Account createAccountRequest = Account.builder()
                 .customer(byId)
-                .ibanNo(NumberGenerator.generatedIbanNo())
+                .ibanNo(NumberGenerator.generatedIbanNoEUR())
                 .money(new BigDecimal(0))
                 .accountType(AccountType.SAVING)
                 .currencyTypes(CurrencyTypes.EUR)
@@ -123,7 +123,7 @@ public class AccountServiceImpl implements AccountService {
         //Mapping requestDto to entity
         Account createAccountRequest = Account.builder()
                 .customer(byId)
-                .ibanNo(NumberGenerator.generatedIbanNo())
+                .ibanNo(NumberGenerator.generatedIbanNoEUR())
                 .money(new BigDecimal(0))
                 .accountType(AccountType.DEPOSIT)
                 .currencyTypes(CurrencyTypes.EUR)
@@ -136,30 +136,31 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public boolean deleteAccount(long id) {
 
-        throw new UnsupportedOperationException("Unimplemented method 'deleteAccount'");
+        this.accountRepository.deleteById(id);
+
+        return  true;
     } 
 
 
 
 
-    private AccountResponseDto accountResponseDto(Account account){
-        return AccountResponseDto.builder()
-        .customerNo(account.getCustomer().getCustomerNo())
-        .userFullName(account.getCustomer().getFirstname()+" "+account.getCustomer().getLastname())
-        .ibanNo(account.getIbanNo())
-        .accountType(account.getAccountType())
-        .currencyType(account.getCurrencyTypes())
-        .createDate(account.getCreatedDate())
-        .money(account.getMoney())
-        .build();
-    }
-
     @Override
     public Account getById(Long id) {
           Optional<Account> findById = this.accountRepository.findById(id);
-
           return findById.orElseThrow(EntityNotFoundException::new);
     
+    }
+
+    private AccountResponseDto accountResponseDto(Account account){
+        return AccountResponseDto.builder()
+                .customerNo(account.getCustomer().getCustomerNo())
+                .userFullName(account.getCustomer().getFirstname()+" "+account.getCustomer().getLastname())
+                .ibanNo(account.getIbanNo())
+                .accountType(account.getAccountType())
+                .currencyType(account.getCurrencyTypes())
+
+                .money(account.getMoney())
+                .build();
     }
 
     

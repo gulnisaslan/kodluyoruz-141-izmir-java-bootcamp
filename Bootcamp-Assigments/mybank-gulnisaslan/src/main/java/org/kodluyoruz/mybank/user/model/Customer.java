@@ -65,8 +65,7 @@ public class Customer extends AbstractEntity{
 	private String customerNo = NumberGenerator.generatedCustomerNo();
 
 	
-	@Column(name="created_date")
-	private LocalDate createdDate= LocalDate.now();
+
 
 	@Column(name="updated_date")
 	private LocalDateTime updatedDate= LocalDateTime.now();

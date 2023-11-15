@@ -55,9 +55,7 @@ public class Account extends AbstractEntity{
     @Column(name = "money") 
     private BigDecimal money;
 
-    @Builder.Default
-	@Column(name="created_date")
-	private LocalDateTime createdDate= LocalDateTime.now();
+
 
 
 	@Column(name="entry_date_time")

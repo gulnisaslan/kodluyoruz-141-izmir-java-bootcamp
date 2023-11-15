@@ -5,7 +5,7 @@ import java.util.Random;
 
 import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
+
 public class NumberGenerator { 
     static Integer maxValue = 10000;
     static Integer minValue =1000;
@@ -15,8 +15,11 @@ public class NumberGenerator {
        
         Integer customerNo = randomCustomerNo.nextInt((maxValue-minValue)+999);
         Integer customerNo2 = randomCustomerNo2.nextInt((maxValue-minValue)+999);
-         
+
+
+
        return customerNo.toString() +" "+ customerNo2.toString();
        
     }
+
 }

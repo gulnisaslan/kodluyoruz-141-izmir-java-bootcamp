@@ -21,7 +21,7 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class CardServiceImpl implements CardService{
+public class CardServiceImpl implements CardService {
     private final CardRepository cardRepository;
     private final AccountService  accountService;
     private final CustomerService  customerService;
@@ -36,7 +36,7 @@ public class CardServiceImpl implements CardService{
                 .cardNo(NumberGenerator.generatedCardNo())
                 .cvc(NumberGenerator.generatedCvcNo())
                 .password(NumberGenerator.generatedPassword())
-                .createCardDate(LocalDate.now())
+
                 .expiredCardDate(LocalDate.now().plusYears(5))
                 .cardType(CardType.DEBIT)
                 .money(account.getMoney())
@@ -55,7 +55,6 @@ public class CardServiceImpl implements CardService{
                 .cardNo(NumberGenerator.generatedCardNo())
                 .cvc(NumberGenerator.generatedCvcNo())
                 .password(NumberGenerator.generatedPassword())
-                .createCardDate(LocalDate.now())
                 .expiredCardDate(LocalDate.now().plusYears(5))
                 .cardType(CardType.CREDITCARD)
                 .money(new BigDecimal(0))
@@ -63,7 +62,12 @@ public class CardServiceImpl implements CardService{
         Card card = this.cardRepository.save(card1);
         return CardResponseDto.toCard(card);
     }
-   
-   
-    
+
+
+    public static interface CardService {
+
+        CardResponseDto createDebitCard(CardRequestDto cardRequestDto);
+        CardResponseDto createCreditCard(CardRequestDto cardRequestDto);
+
+    }
 }

@@ -41,8 +41,7 @@ public class Card extends AbstractEntity {
     private String cardNo;
     @Column(name="cvc")
     private String cvc;
-    @Column(name="create_card_date")
-    private LocalDate createCardDate;
+
     @Column(name="expired_card_date")
     private LocalDate expiredCardDate;
     @Enumerated(EnumType.STRING)

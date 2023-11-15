@@ -15,9 +15,14 @@ public class NumberGenerator {
         Integer cardNo2 = randomCard2.nextInt((maxValue-minValue)+999);
         Integer cardNo3 = randomCard3.nextInt((maxValue-minValue)+999);
         Integer cardNo4 = randomCard4.nextInt((maxValue-minValue)+999);
-         
-       return cardNo.toString()+" "+cardNo2.toString()+" "+
-       cardNo3.toString()+" "+cardNo4.toString();
+
+       StringBuilder cardNoString = new StringBuilder(cardNo.toString() + cardNo2.toString() +
+               cardNo3.toString() + cardNo4.toString());
+
+       if(cardNoString.length()!=16){
+          return cardNoString.toString();
+       }
+       return cardNoString.toString();
     }
 
     static Integer maxValueCvc = 999;
