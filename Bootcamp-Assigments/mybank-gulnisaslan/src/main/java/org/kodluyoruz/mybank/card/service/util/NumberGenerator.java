@@ -22,6 +22,7 @@ public class NumberGenerator {
        if(cardNoString.length()!=16){
           return cardNoString.toString();
        }
+
        return cardNoString.toString();
     }
 
@@ -30,8 +31,11 @@ public class NumberGenerator {
     public static String generatedCvcNo() {
         Random randomCard =  new Random();
        
-        Integer cvc= randomCard.nextInt((maxValueCvc-minValueCvc)+999);
-       
+        Integer cvc= randomCard.nextInt((maxValueCvc-minValueCvc)+maxValue);
+
+        if(cvc != 3){
+            return cvc.toString();
+        }
          
        return cvc.toString();
     }
@@ -41,8 +45,11 @@ public class NumberGenerator {
     public static String generatedPassword() {
         Random randomCard =  new Random();
        
-        Integer password= randomCard.nextInt((maxValuePassword-minValuePassword)+999);
-       
+        Integer password= randomCard.nextInt((maxValuePassword-minValuePassword)+maxValue);
+
+        if(password != 4){
+            return password.toString();
+        }
          
        return password.toString();
     }

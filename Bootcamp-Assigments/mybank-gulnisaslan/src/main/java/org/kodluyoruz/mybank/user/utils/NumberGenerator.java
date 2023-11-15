@@ -16,10 +16,18 @@ public class NumberGenerator {
         Integer customerNo = randomCustomerNo.nextInt((maxValue-minValue)+999);
         Integer customerNo2 = randomCustomerNo2.nextInt((maxValue-minValue)+999);
 
+        StringBuilder genetartedCustomerNo = new StringBuilder(customerNo.toString() + " " + customerNo2.toString());
 
+        isLengthCustomerNo(genetartedCustomerNo.toString());
 
-       return customerNo.toString() +" "+ customerNo2.toString();
+        return genetartedCustomerNo.toString();
        
+    }
+    private static boolean isLengthCustomerNo(String customerNo){
+        if(customerNo.length() != 8)
+            return false ;
+        return true;
+
     }
 
 }
