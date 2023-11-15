@@ -12,6 +12,8 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Data
 public class TransferWithIbanRequestDto {
+    private String senderFullName;
+    private String receiverFullName;
     private  String senderIban;
     private String receiverIban;
     private BigDecimal measureMoney;
